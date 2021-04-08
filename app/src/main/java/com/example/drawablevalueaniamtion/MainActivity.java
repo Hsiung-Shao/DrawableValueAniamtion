@@ -36,22 +36,30 @@ public class MainActivity extends AppCompatActivity {
         changeGreen = findViewById(R.id.changeGreenButton);
 
         Resources res = getResources();
-        AnimationDrawable  animationDrawable = (AnimationDrawable) res.getDrawable(R.drawable.image_list);
+//        AnimationDrawable  animDrawable = (AnimationDrawable) res.getDrawable(R.drawable.image_list);
+        AnimationDrawable animDrawable = new AnimationDrawable();
+        animDrawable.setOneShot(true);
 
-        imageView.setImageDrawable(animationDrawable);
+        animDrawable.addFrame(res.getDrawable(R.drawable.item01), 500);
+        animDrawable.addFrame(res.getDrawable(R.drawable.item02), 500);
+        animDrawable.addFrame(res.getDrawable(R.drawable.item03), 500);
+        animDrawable.addFrame(res.getDrawable(R.drawable.item04), 500);
+        animDrawable.addFrame(res.getDrawable(R.drawable.item05), 500);
+
+        imageView.setImageDrawable(animDrawable);
 
 
         imageStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                animationDrawable.start();
+                animDrawable.start();
             }
         });
 
         imageStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                animationDrawable.stop();
+                animDrawable.stop();
             }
         });
 
